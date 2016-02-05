@@ -748,10 +748,14 @@ class wpdb {
 		if ( defined( 'DB_CHARSET' ) ) {
 			$this->charset = DB_CHARSET;
 		}
+		
+		var_dump( 'TRACE_PRE' );
 
 		if ( ( $this->use_mysqli && ! ( $this->dbh instanceof mysqli ) ) || empty( $this->dbh ) ) {
 			return;
 		}
+		
+		var_dump( 'TRACE_POST' );
 
 		if ( 'utf8' === $this->charset && $this->has_cap( 'utf8mb4' ) ) {
 			$this->charset = 'utf8mb4';
